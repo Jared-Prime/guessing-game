@@ -1,5 +1,6 @@
 use std::old_io;
 use std::rand;
+use std::cmp::Ordering;
 
 fn main() {
     println!("Guess a number between 1 and 100");
@@ -13,6 +14,18 @@ fn main() {
                     .read_line()
                     .ok()
                     .expect("Failed to read line");
+
+    // change our &str input to an unsigned 32 bit integer
+    let guess: Option<u32> = input.trim().parse().ok();
+
+    // we need to unwrap the parsed input, verify it as an integer
+    let guess_num = match guess {
+        Some(guess) => guess,
+        None => {
+          println!("please input a number!");
+          return;
+        }
+    };
 
     println!("You guessed: {}", input);
 }
