@@ -8,7 +8,7 @@ import (
 
 const (
   youWin  = iota
-  tooLow  = iota
+  tooLow
   tooHigh
 )
 
