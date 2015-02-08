@@ -28,7 +28,7 @@ fn main() {
             }
         };
 
-        match cmp(secret, guess_num) {
+        match cmp(guess_num, secret) {
           Ordering::Less => println!("too small!"),
           Ordering::Greater => println!("too big!"),
           Ordering::Equal => {
@@ -39,8 +39,8 @@ fn main() {
     }
 }
 
-fn cmp(a: u32, b: u32) -> Ordering {
-  if a < b { Ordering::Less }
-  else if a > b { Ordering::Greater }
+fn cmp(guess: u32, secret: u32) -> Ordering {
+  if guess < secret { Ordering::Less }
+  else if guess > secret { Ordering::Greater }
   else { Ordering::Equal }
 }
